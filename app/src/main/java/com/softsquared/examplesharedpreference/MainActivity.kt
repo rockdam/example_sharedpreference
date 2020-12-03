@@ -6,11 +6,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    var mBtnCreate: Button? = null
-    var mBtnInqury: Button? = null
+
     var mListview: ListView? = null
     var mListviewAdapter: ListviewAdapter? = null
     var mArrayList = ArrayList<Data>()
@@ -22,10 +22,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         mArrayList.add(Data("rock", "awesome"))
         mArrayList.add(Data("rock", "zzang"))
         mListview?.adapter=mListviewAdapter
-        mBtnCreate = findViewById(R.id.main_btn_create)
-        mBtnInqury = findViewById(R.id.main_btn_inqury)
-        mBtnCreate?.setOnClickListener(this)
-        mBtnInqury?.setOnClickListener(this)
+
+        main_btn_create.setOnClickListener(this)
+        main_btn_inqury.setOnClickListener(this)
 
 //        ?. 연산자를 사용하면, 앞의 변수가 null이 아닐때만 오른쪽 함수가 수행되고 null이면 null을 반환합니다.
 //

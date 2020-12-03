@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import java.util.*
+import kotlinx.android.synthetic.main.item_layout.view.*
 
-class ListviewAdapter(var mArrayList: ArrayList<Data>, var mContext: Context) : BaseAdapter() {
+class ListviewAdapter(var mArrayList: ArrayList<Data>,mContext: Context) : BaseAdapter() {
     var mLayoutInflater: LayoutInflater
     var mTitle: TextView? = null
     var mContents: TextView? = null
@@ -24,14 +25,12 @@ class ListviewAdapter(var mArrayList: ArrayList<Data>, var mContext: Context) : 
         return position.toLong()
     }
 
-    override fun getView(position: Int, view: View, parent: ViewGroup): View {
+    override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         var view = view
         view = mLayoutInflater.inflate(R.layout.item_layout, parent, false)
-        mTitle = view.findViewById(R.id.item_layout_title)
-        mContents = view.findViewById(R.id.item_layout_contents)
 
-        mTitle?.text=mArrayList[position].title
-        mContents?.text=mArrayList[position].contents
+        view.item_layout_title.text=mArrayList[position].title
+        view.item_layout_contents.text=mArrayList[position].contents
         return view
     }
 
